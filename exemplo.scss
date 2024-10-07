@@ -1,0 +1,60 @@
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+        -ms-border-radius: $radius;
+            border-radius: $radius;
+}
+
+.box { 
+    @include border-radius(10px); 
+}
+
+@mixin titulo($size, $color: blue) {
+    color: $color;
+    font-size: $size;
+}
+  
+h1 {
+    @include titulo(14px);
+}
+  
+h1 {
+    @include titulo(14px, green);
+}
+
+@mixin titulo($size, $color) {
+    color: $color;
+    font-size: $size;
+}
+  
+h1 {
+    @include titulo($color: green, $size: 14px);
+}
+
+@mixin pad ($values...) {
+    padding: $values;
+}
+  
+p {
+    @include pad(20px);
+}
+  
+p {
+    @include pad(10px 20px);
+}
+  
+p {
+    @include pad(10px 20px 40px);
+}
+  
+p {
+    @include pad(10px 20px 30px 20px);
+}
+
+@function calc-fluid($target, $container) {
+    @return ($target / $container) * 100%;
+}
+
+div {
+    width: calc-fluid(650px, 1000px);
+}

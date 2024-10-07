@@ -1,0 +1,49 @@
+// Variáveis globais
+$primary-color: #336699;
+$secondary-color: #000000;
+$terceira-color:#ffff;
+$font-family: Arial, sans-serif;
+$font-size: 16px;
+$spacing: 1rem;
+
+// Funções
+@function lighten($color, $amount: 10%) {
+  @return adjust-hue($color, $amount);
+}
+
+@function darken($color, $amount: 10%) {
+  @return adjust-hue($color, $amount);
+}
+
+// Mixins
+@mixin button-style($background-color, $text-color) {
+  background-color: $background-color;
+  color: $text-color;
+  padding: $spacing;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: $font-family;
+  font-size: $font-size;
+}
+
+// Estilos globais
+body {
+  font-family: $font-family;
+  font-size: $font-size;
+  line-height: 1.5;
+}
+
+// Estilos dos botões
+.primary-button {
+  @include button-style($primary-color, lighten($primary-color, 30%));
+}
+
+.secondary-button {
+  @include button-style($secondary-color, darken($terceira-color , 10%));
+}
+
+// Estilo do texto
+.text {
+  color: darken($secondary-color, 20%);
+}
